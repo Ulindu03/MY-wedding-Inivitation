@@ -141,6 +141,11 @@ function initRSVPForm() {
   const form = document.getElementById('rsvp-form');
   const success = document.getElementById('rsvp-success');
 
+  // Force reset form on page load in case the browser caches the values
+  if (form) {
+    form.reset();
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = document.getElementById('rsvp-submit');
@@ -254,11 +259,12 @@ function initRSVPForm() {
 // ===== MUSIC TOGGLE =====
 function initMusicToggle() {
   const btn = document.getElementById('music-toggle');
+  const btnOpen = document.getElementById('btn-open-invitation');
   let isPlaying = false;
-  const audio = new Audio('mp3.mp3');
+  const audio = new Audio('Dátha Dara - Instrumental.mp3');
   audio.loop = true;
 
-  btn.addEventListener('click', () => {
+  function toggleMusic() {
     isPlaying = !isPlaying;
     btn.classList.toggle('playing', isPlaying);
     
@@ -267,5 +273,15 @@ function initMusicToggle() {
     } else {
       audio.pause();
     }
-  });
+  }
+
+  btn.addEventListener('click', toggleMusic);
+
+  if (btnOpen) {
+    btnOpen.addEventListener('click', () => {
+      if (!isPlaying) {
+        toggleMusic();
+      }
+    });
+  }
 }
