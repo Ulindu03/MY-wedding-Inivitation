@@ -10,6 +10,31 @@ app.use(express.json());
 // Serve static frontend files (index.html, styles.css, script.js, etc.)
 app.use(express.static(__dirname));
 
+const fs = require('fs');
+const path = require('path');
+const rsvpFile = path.join(__dirname, 'rsvp_counts.json');
+
+app.post('/api/track-rsvp', (req, res) => {
+  const { isAttending, guests } = req.body;
+  let counts = { totalAcceptedRSVPs: 0, totalGuests: 0 };
+  
+  if (fs.existsSync(rsvpFile)) {
+    try {
+      counts = JSON.parse(fs.readFileSync(rsvpFile, 'utf8'));
+    } catch (e) {
+      console.error('Error reading rsvp file', e);
+    }
+  }
+
+  if (isAttending) {
+    counts.totalAcceptedRSVPs += 1;
+    counts.totalGuests += parseInt(guests) || 0;
+    fs.writeFileSync(rsvpFile, JSON.stringify(counts, null, 2));
+  }
+
+  res.json(counts);
+});
+
 // Transporter using Gmail and App Password
 const transporter = nodemailer.createTransport({
   service: 'gmail',

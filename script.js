@@ -146,7 +146,7 @@ function initRSVPForm() {
     form.reset();
   }
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = document.getElementById('rsvp-submit');
     btn.innerHTML = '<span class="btn-text">Sending...</span>';
@@ -161,13 +161,28 @@ function initRSVPForm() {
     const dietary = formData.get('dietary') || 'None';
     const message = formData.get('message') || 'No message';
 
+    let totalGuestsCountText = '';
+    try {
+      const countRes = await fetch('/api/track-rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ isAttending, guests })
+      });
+      const countData = await countRes.json();
+      if (countData) {
+        totalGuestsCountText = `\n\n*Total Accepted RSVPs:* ${countData.totalAcceptedRSVPs}\n*Total Guests Attending:* ${countData.totalGuests}`;
+      }
+    } catch (err) {
+      console.error('Failed to track RSVP:', err);
+    }
+
     const waText = `*RSVP Response: Ulindu & Nethmi Wedding*\n\n` +
       `*Name:* ${name}\n` +
       `*Email:* ${email}\n` +
       `*Attending:* ${attendance}\n` +
       `*Number of Guests:* ${guests}\n` +
       `*Dietary Requirements:* ${dietary}\n` +
-      `*Message:* ${message}`;
+      `*Message:* ${message}` + totalGuestsCountText;
 
     const waNumber = '94772987904';
     // Use deep link to bypass the intermediate web page
