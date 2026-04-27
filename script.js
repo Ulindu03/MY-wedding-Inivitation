@@ -150,7 +150,8 @@ function initRSVPForm() {
     const formData = new FormData(form);
     const name = formData.get('name') || 'Not provided';
     const email = formData.get('email') || 'Not provided';
-    const attendance = formData.get('attendance') === 'accept' ? 'Accepts with pleasure 🎉' : 'Declines with regret 😔';
+    const isAttending = formData.get('attendance') === 'accept';
+    const attendance = isAttending ? 'Accepts with pleasure 🎉' : 'Declines with regret 😔';
     const guests = formData.get('guests') || '0';
     const dietary = formData.get('dietary') || 'None';
     const message = formData.get('message') || 'No message';
@@ -164,14 +165,88 @@ function initRSVPForm() {
       `*Message:* ${message}`;
 
     const waNumber = '94772987904';
-    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+    // Use deep link to bypass the intermediate web page
+    const waUrl = `whatsapp://send?phone=${waNumber}&text=${encodeURIComponent(waText)}`;
     
-    window.open(waUrl, '_blank');
+    // Attempt to open the WhatsApp app directly
+    window.location.href = waUrl;
+
+    let emailSubject = '';
+    let emailBody = '';
+
+    if (isAttending) {
+      emailSubject = "Wedding Invitation Confirmation - Ulindu & Nethmi";
+      emailBody = `
+        <div style="font-family: 'Montserrat', sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          <div style="background-color: #fce4ec; padding: 30px; text-align: center;">
+            <h1 style="color: #880e4f; margin: 0; font-size: 32px; font-family: 'Great Vibes', cursive;">Ulindu & Nethmi</h1>
+            <p style="color: #c2185b; font-size: 16px; margin-top: 5px;">Wedding Invitation Confirmation</p>
+          </div>
+          <div style="padding: 30px; background-color: #ffffff; text-align: center;">
+            <h2 style="color: #333333; font-size: 24px; margin-bottom: 15px;">Thank You, ${name}! 🌸</h2>
+            <p style="color: #666666; font-size: 16px; line-height: 1.6;">We are absolutely thrilled that you will be joining us to celebrate our special day.</p>
+            <p style="color: #666666; font-size: 16px; line-height: 1.6;">Your RSVP for <strong>${guests} guest(s)</strong> has been successfully received.</p>
+            <hr style="border: none; border-top: 1px solid #eeeeee; margin: 25px 0;">
+            <h3 style="color: #880e4f; font-size: 18px; margin-bottom: 10px;">Event Details</h3>
+            <p style="color: #555555; font-size: 15px; margin: 5px 0;"><strong>Date:</strong> January 10, 2033</p>
+            <p style="color: #555555; font-size: 15px; margin: 5px 0;"><strong>Time:</strong> 4:00 PM</p>
+            <p style="color: #555555; font-size: 15px; margin: 5px 0;"><strong>Venue:</strong> Hill Paradise Hotel, Hanthana</p>
+            <hr style="border: none; border-top: 1px solid #eeeeee; margin: 25px 0;">
+            <p style="color: #666666; font-size: 16px; font-style: italic;">We can't wait to share these beautiful moments with you!</p>
+          </div>
+          <div style="background-color: #f8bbd0; padding: 15px; text-align: center; color: #880e4f; font-size: 14px;">
+            With love,<br><strong>Ulindu & Nethmi</strong>
+          </div>
+        </div>
+      `;
+    } else {
+      emailSubject = "Wedding Invitation Update - Ulindu & Nethmi";
+      emailBody = `
+        <div style="font-family: 'Montserrat', sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          <div style="background-color: #fce4ec; padding: 30px; text-align: center;">
+            <h1 style="color: #880e4f; margin: 0; font-size: 32px; font-family: 'Great Vibes', cursive;">Ulindu & Nethmi</h1>
+            <p style="color: #c2185b; font-size: 16px; margin-top: 5px;">Wedding Invitation Update</p>
+          </div>
+          <div style="padding: 30px; background-color: #ffffff; text-align: center;">
+            <h2 style="color: #333333; font-size: 24px; margin-bottom: 15px;">Dear ${name},</h2>
+            <p style="color: #666666; font-size: 16px; line-height: 1.6;">We have received your response and are so sorry to hear that you won't be able to make it to our wedding.</p>
+            <p style="color: #666666; font-size: 16px; line-height: 1.6;">You will certainly be missed, but we completely understand. We hope to catch up and celebrate with you at another time!</p>
+            <hr style="border: none; border-top: 1px solid #eeeeee; margin: 25px 0;">
+            <p style="color: #666666; font-size: 16px; font-style: italic;">Thank you for letting us know, and for all your love and support.</p>
+          </div>
+          <div style="background-color: #f8bbd0; padding: 15px; text-align: center; color: #880e4f; font-size: 14px;">
+            Warmly,<br><strong>Ulindu & Nethmi</strong>
+          </div>
+        </div>
+      `;
+    }
+
+    if (email && email !== 'Not provided') {
+      fetch('/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          to: email,
+          subject: emailSubject,
+          html: emailBody
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log('Email sent status: ', data))
+      .catch(error => console.error('Error sending email:', error));
+    }
 
     setTimeout(() => {
       form.style.display = 'none';
       success.classList.remove('hidden');
       success.style.animation = 'fadeIn 0.6s ease forwards';
+      
+      // Reset form data and button state
+      form.reset();
+      btn.innerHTML = '<span class="btn-text">Send Your Response</span><span class="btn-shimmer"></span>';
+      btn.disabled = false;
     }, 1200);
   });
 }
@@ -180,9 +255,17 @@ function initRSVPForm() {
 function initMusicToggle() {
   const btn = document.getElementById('music-toggle');
   let isPlaying = false;
+  const audio = new Audio('mp3.mp3');
+  audio.loop = true;
 
   btn.addEventListener('click', () => {
     isPlaying = !isPlaying;
     btn.classList.toggle('playing', isPlaying);
+    
+    if (isPlaying) {
+      audio.play().catch(e => console.error("Error playing audio:", e));
+    } else {
+      audio.pause();
+    }
   });
 }
