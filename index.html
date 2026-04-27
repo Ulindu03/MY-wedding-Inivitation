@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulindu & Nethmi | Wedding Invitation</title>
+    <meta name="description"
+        content="You are cordially invited to celebrate the wedding of Ulindu & Nethmi on January 10, 2033 at Hill Paradise Hotel, Hanthana.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="locked">
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <p class="preloader-text">U & N</p>
+        </div>
+    </div>
+
+    <!-- Entrance Screen -->
+    <div id="entrance-screen" class="entrance-screen">
+        <div class="entrance-content">
+            <div class="entrance-envelope">💌</div>
+            <h2>Ulindu & Nethmi</h2>
+            <p>You're invited to our wedding</p>
+            <button id="btn-open-invitation" class="btn-open-invitation">
+                Open Invitation
+                <span class="btn-shimmer"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Petals -->
+    <div id="petals-container" class="petals-container"></div>
+
+    <!-- Fireflies -->
+    <div id="fireflies-container" class="fireflies-container"></div>
+
+    <!-- Navigation Dots -->
+    <nav id="nav-dots" class="nav-dots">
+        <button class="nav-dot active" data-section="hero" aria-label="Go to Hero section"></button>
+        <button class="nav-dot" data-section="invitation" aria-label="Go to Invitation section"></button>
+        <button class="nav-dot" data-section="details" aria-label="Go to Details section"></button>
+        <button class="nav-dot" data-section="venue" aria-label="Go to Venue section"></button>
+        <button class="nav-dot" data-section="rsvp" aria-label="Go to RSVP section"></button>
+    </nav>
+
+    <!-- Music Toggle -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle music">
+        <span class="music-icon">♪</span>
+        <div class="music-bars">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </button>
+
+    <!-- ===================== SECTION 1: HERO ===================== -->
+    <section id="hero" class="section hero-section">
+        <div class="enchanted-forest-bg">
+            <!-- CSS-rendered forest elements -->
+            <div class="forest-tree tree-left-1"></div>
+            <div class="forest-tree tree-left-2"></div>
+            <div class="forest-tree tree-right-1"></div>
+            <div class="forest-tree tree-right-2"></div>
+            <div class="forest-vines vine-left"></div>
+            <div class="forest-vines vine-right"></div>
+            <div class="light-rays"></div>
+            <div class="forest-ground"></div>
+
+            <!-- Floating flowers -->
+            <div class="flower flower-1">🌸</div>
+            <div class="flower flower-2">💜</div>
+            <div class="flower flower-3">🌺</div>
+            <div class="flower flower-4">💐</div>
+            <div class="flower flower-5">🌷</div>
+            <div class="flower flower-6">💜</div>
+            <div class="flower flower-7">🌸</div>
+            <div class="flower flower-8">🌺</div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-top-text animate-on-scroll" data-animation="fadeDown">
+                <p class="pre-title">You are invited to the wedding of</p>
+            </div>
+
+            <div class="hero-names animate-on-scroll" data-animation="fadeIn">
+                <h1 class="couple-names">
+                    <span class="name-first">Ulindu</span>
+                    <span class="ampersand">&</span>
+                    <span class="name-second">Nethmi</span>
+                </h1>
+            </div>
+
+            <div class="hero-date animate-on-scroll" data-animation="fadeUp">
+                <div class="save-date-label">Save the Date</div>
+                <div class="wedding-date">
+                    <span class="date-month">January</span>
+                    <span class="date-number">10</span>
+                    <span class="date-year">2033</span>
+                </div>
+            </div>
+
+            <div class="hero-venue animate-on-scroll" data-animation="fadeUp">
+                <div class="venue-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">✦</span>
+                    <span class="divider-line"></span>
+                </div>
+                <p class="venue-name">Hill Paradise Hotel, Hanthana</p>
+            </div>
+
+            <div class="scroll-indicator animate-on-scroll" data-animation="fadeUp">
+                <div class="scroll-arrow">
+                    <span></span>
+                    <span></span>
+                </div>
+                <p>Scroll to explore</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SECTION 2: INVITATION ===================== -->
+    <section id="invitation" class="section invitation-section">
+        <div class="section-bg invitation-bg"></div>
+
+        <div class="floral-frame">
+            <div class="floral-corner floral-top-left"></div>
+            <div class="floral-corner floral-top-right"></div>
+            <div class="floral-corner floral-bottom-left"></div>
+            <div class="floral-corner floral-bottom-right"></div>
+
+            <div class="invitation-content">
+                <div class="ornament ornament-top animate-on-scroll" data-animation="fadeDown">❦</div>
+
+                <p class="invitation-line animate-on-scroll" data-animation="fadeIn">Together with their families</p>
+
+                <h2 class="invitation-names animate-on-scroll" data-animation="scaleIn">
+                    <span>Ulindu</span>
+                    <em>&</em>
+                    <span>Nethmi</span>
+                </h2>
+
+                <p class="invitation-line animate-on-scroll" data-animation="fadeIn">
+                    Request the honor of your presence<br>
+                    as they exchange vows and begin<br>
+                    their life together
+                </p>
+
+                <div class="invitation-date-block animate-on-scroll" data-animation="fadeUp">
+                    <div class="date-ornament-line"></div>
+                    <p class="date-formal">Saturday, the tenth of January</p>
+                    <p class="date-formal">Two Thousand and Thirty-Three</p>
+                    <p class="date-formal time-formal">At four o'clock in the afternoon</p>
+                    <div class="date-ornament-line"></div>
+                </div>
+
+                <div class="invitation-venue animate-on-scroll" data-animation="fadeUp">
+                    <p class="venue-formal">Hill Paradise Hotel</p>
+                    <p class="venue-location">Hanthana, Sri Lanka</p>
+                </div>
+
+                <p class="invitation-footer animate-on-scroll" data-animation="fadeIn">
+                    Dinner and dancing to follow
+                </p>
+
+                <div class="ornament ornament-bottom animate-on-scroll" data-animation="fadeUp">❦</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SECTION 3: EVENT DETAILS ===================== -->
+    <section id="details" class="section details-section">
+        <div class="section-bg details-bg"></div>
+
+        <div class="details-content">
+            <h2 class="section-title animate-on-scroll" data-animation="fadeDown">
+                <span class="title-ornament">✦</span>
+                Wedding Day Details
+                <span class="title-ornament">✦</span>
+            </h2>
+
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll" data-animation="slideLeft">
+                    <div class="timeline-icon">
+                        <span>💒</span>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>The Ceremony</h3>
+                        <p class="timeline-time">4:00 PM</p>
+                        <p class="timeline-desc">Join us as Ulindu & Nethmi exchange their vows in the enchanted garden
+                            setting of Hill Paradise Hotel.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" data-animation="slideRight">
+                    <div class="timeline-icon">
+                        <span>🥂</span>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>Cocktail Hour</h3>
+                        <p class="timeline-time">5:00 PM</p>
+                        <p class="timeline-desc">Enjoy handcrafted cocktails and hors d'oeuvres while overlooking the
+                            breathtaking Hanthana hills.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" data-animation="slideLeft">
+                    <div class="timeline-icon">
+                        <span>🍽️</span>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>Reception & Dinner</h3>
+                        <p class="timeline-time">6:30 PM</p>
+                        <p class="timeline-desc">An exquisite multi-course dinner awaits, followed by heartfelt toasts
+                            and speeches.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" data-animation="slideRight">
+                    <div class="timeline-icon">
+                        <span>💃</span>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>Dancing Under the Stars</h3>
+                        <p class="timeline-time">8:00 PM</p>
+                        <p class="timeline-desc">Let's celebrate love on the dance floor beneath the starlit Hanthana
+                            sky!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dress Code & Info -->
+            <div class="info-cards">
+                <div class="info-card animate-on-scroll" data-animation="fadeUp">
+                    <div class="info-card-icon">👔</div>
+                    <h3>Dress Code</h3>
+                    <p>Garden Formal</p>
+                    <p class="info-note">Hanthana evenings can be cool — a light wrap or jacket is recommended.</p>
+                </div>
+
+                <div class="info-card animate-on-scroll" data-animation="fadeUp">
+                    <div class="info-card-icon">🏨</div>
+                    <h3>Accommodations</h3>
+                    <p>Hill Paradise Hotel</p>
+                    <p class="info-note">A room block has been reserved. Boutique hotels in Kandy are also nearby.</p>
+                </div>
+
+                <div class="info-card animate-on-scroll" data-animation="fadeUp">
+                    <div class="info-card-icon">🗓️</div>
+                    <h3>RSVP By</h3>
+                    <p>December 1, 2032</p>
+                    <p class="info-note">Please let us know if you can celebrate with us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SECTION 4: VENUE ===================== -->
+    <section id="venue" class="section venue-section">
+        <div class="section-bg venue-bg"></div>
+
+        <div class="venue-content">
+            <h2 class="section-title animate-on-scroll" data-animation="fadeDown">
+                <span class="title-ornament">✦</span>
+                The Venue
+                <span class="title-ornament">✦</span>
+            </h2>
+
+            <div class="venue-showcase animate-on-scroll" data-animation="fadeIn">
+                <div class="venue-image-frame">
+                    <div class="venue-image-placeholder">
+                        <div class="venue-illustration">
+                            <div class="mountain mountain-1"></div>
+                            <div class="mountain mountain-2"></div>
+                            <div class="mountain mountain-3"></div>
+                            <div class="hotel-building"></div>
+                            <div class="venue-trees">
+                                <div class="v-tree v-tree-1"></div>
+                                <div class="v-tree v-tree-2"></div>
+                                <div class="v-tree v-tree-3"></div>
+                                <div class="v-tree v-tree-4"></div>
+                                <div class="v-tree v-tree-5"></div>
+                            </div>
+                            <div class="venue-sun"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="venue-details">
+                    <h3 class="venue-title">Hill Paradise Hotel</h3>
+                    <p class="venue-subtitle">Hanthana, Sri Lanka</p>
+                    <p class="venue-description">
+                        Nestled in the lush green hills of Hanthana, just outside the historic city of Kandy,
+                        Hill Paradise Hotel offers a breathtaking setting with panoramic views of misty mountains
+                        and terraced gardens — the perfect backdrop for our enchanted celebration of love.
+                    </p>
+                    <a href="https://maps.google.com/?q=Hill+Paradise+Hotel+Hanthana" target="_blank"
+                        rel="noopener noreferrer" class="venue-map-btn" id="venue-map-link">
+                        <span class="btn-icon">📍</span>
+                        View on Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SECTION 5: RSVP ===================== -->
+    <section id="rsvp" class="section rsvp-section">
+        <div class="section-bg rsvp-bg"></div>
+
+        <div class="rsvp-content">
+            <h2 class="section-title animate-on-scroll" data-animation="fadeDown">
+                <span class="title-ornament">✦</span>
+                RSVP
+                <span class="title-ornament">✦</span>
+            </h2>
+            <p class="rsvp-subtitle animate-on-scroll" data-animation="fadeIn">
+                We would be honored by your presence. Please respond by <strong>December 1, 2032</strong>.
+            </p>
+
+            <form id="rsvp-form" class="rsvp-form animate-on-scroll" data-animation="fadeUp">
+                <div class="form-group">
+                    <label for="guest-name">Your Name</label>
+                    <input type="text" id="guest-name" name="name" placeholder="M__________" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guest-email">Email Address</label>
+                    <input type="email" id="guest-email" name="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Will you attend?</label>
+                    <div class="radio-group">
+                        <label class="radio-label" for="rsvp-accept">
+                            <input type="radio" id="rsvp-accept" name="attendance" value="accept" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Accepts with pleasure</span>
+                        </label>
+                        <label class="radio-label" for="rsvp-decline">
+                            <input type="radio" id="rsvp-decline" name="attendance" value="decline">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Declines with regret</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="guest-count">Number of Guests</label>
+                    <select id="guest-count" name="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dietary-info">Dietary Requirements</label>
+                    <textarea id="dietary-info" name="dietary"
+                        placeholder="Please list any allergies or dietary restrictions..." rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="guest-message">Message for the Couple</label>
+                    <textarea id="guest-message" name="message" placeholder="Share your wishes..." rows="3"></textarea>
+                </div>
+
+                <button type="submit" id="rsvp-submit" class="rsvp-submit-btn">
+                    <span class="btn-text">Send Your Response</span>
+                    <span class="btn-shimmer"></span>
+                </button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="rsvp-success" class="rsvp-success hidden">
+                <div class="success-icon">💌</div>
+                <h3>Thank You!</h3>
+                <p>Your response has been received. We can't wait to celebrate with you!</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="invitation-footer-section">
+            <div class="footer-content">
+                <p class="footer-names">Ulindu & Nethmi</p>
+                <p class="footer-date">January 10, 2033</p>
+                <div class="footer-hearts">
+                    <span>♡</span><span>♡</span><span>♡</span>
+                </div>
+                <p class="footer-message">Let's celebrate under the stars!</p>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Countdown Timer Overlay -->
+    <div id="countdown" class="countdown-widget">
+        <div class="countdown-title">Until the big day</div>
+        <div class="countdown-timer">
+            <div class="countdown-item">
+                <span id="countdown-days" class="countdown-value">0</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <span id="countdown-hours" class="countdown-value">0</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <span id="countdown-minutes" class="countdown-value">0</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <span id="countdown-seconds" class="countdown-value">0</span>
+                <span class="countdown-label">Sec</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
